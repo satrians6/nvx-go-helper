@@ -26,7 +26,7 @@ package response
 import (
 	"context"
 
-	"github.com/google/uuid"
+	"github.com/Jkenyut/nvx-go-helper/crypto"
 )
 
 // contextKey is a private type to avoid key collisions in context
@@ -62,7 +62,7 @@ func requestIDFromContext(ctx context.Context) string {
 
 // generateRequestID creates a new UUID v4 as fallback.
 func generateRequestID() string {
-	return uuid.New().String()
+	return crypto.V4()
 }
 
 // NewMeta builds metadata with correct request_id precedence:
