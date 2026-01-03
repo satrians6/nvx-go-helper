@@ -32,7 +32,10 @@ func TestNowWIB(t *testing.T) {
 }
 
 func TestNow(t *testing.T) {
-	assert.Equal(t, NowUTC().Format(time.RFC3339Nano), Now().Format(time.RFC3339Nano))
+	t1 := NowUTC()
+	t2 := Now()
+	assert.Equal(t, "UTC", t2.Location().String())
+	assert.WithinDuration(t, t1, t2, time.Second)
 }
 
 func TestToWIB(t *testing.T) {
