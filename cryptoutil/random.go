@@ -1,4 +1,4 @@
-// Package random provides cryptographically secure, fast, and convenient random string
+// Package cryptoutil provides cryptographically secure, fast, and convenient random string
 // generation utilities used across all services.
 //
 // Why this package exists
@@ -21,13 +21,13 @@
 //
 // Example usage:
 //
-//	otp := random.Numbers(6)                    // "583920"
-//	code := random.String(8)                    // "K9P2M7X4"
-//	token := random.StringMixed(32)             // "aB9kLmPqRx2ZyT7vN8wQ5eD3cF6gH8jK"
-//	shortURL := random.StringLower(7)           // "k9p2m7x"
+//	otp := cryptoutil.Numbers(6)                    // "583920"
+//	code := cryptoutil.String(8)                    // "K9P2M7X4"
+//	token := cryptoutil.StringMixed(32)             // "aB9kLmPqRx2ZyT7vN8wQ5eD3cF6gH8jK"
+//	shortURL := cryptoutil.StringLower(7)           // "k9p2m7x"
 //
 // Used daily by Gojek, Tokopedia, Shopee, Traveloka, BRI, BCA, and thousands of startups.
-package crypto
+package cryptoutil
 
 import (
 	"crypto/rand"
@@ -85,18 +85,26 @@ func Numbers(length int) string {
 // stringWithCharset is the core implementation shared by all string functions.
 // It is intentionally unexported — users should use the semantic helpers above.
 func stringWithCharset(length int, charset string) string {
+	// Guard clause for invalid length
 	if length <= 0 {
 		return ""
 	}
+	// Create byte slice of requested length
 	b := make([]byte, length)
+	// Calculate max index based on charset length
 	maxID := big.NewInt(int64(len(charset)))
 
+	// Iterate to fill each byte
 	for i := range b {
+		// Generate cryptographically secure random index
 		n, err := rand.Int(rand.Reader, maxID)
 		if err != nil {
+			// Panic is acceptable here as crypto/rand failure is catastrophic
 			panic("crypto/rand.Int failed: " + err.Error())
 		}
+		// Select character from charset using random index
 		b[i] = charset[n.Int64()]
 	}
+	// Convert byte slice to string and return
 	return string(b)
 }

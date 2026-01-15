@@ -83,10 +83,13 @@ func FormatUTC(t time.Time, layout string) string {
 // ParseRFC3339Safe safely parses an RFC3339 string.
 // Returns zero time + nil error if input is empty or represents a zero/default date.
 func ParseRFC3339Safe(s string) (time.Time, error) {
+	// Clean input
 	s = strings.TrimSpace(s)
+	// Check for empty or zero values
 	if s == "" || s == "0001-01-01T00:00:00Z" || strings.HasPrefix(s, "0001-01-01") {
 		return time.Time{}, nil // represents "no value"
 	}
+	// Parse with standard RFC3339
 	return time.Parse(time.RFC3339, s)
 }
 

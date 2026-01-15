@@ -1,4 +1,4 @@
-module github.com/Jkenyut/nvx-go-helper
+module github.com/DT-SMS-Finance/nvx-go-helper
 
 go 1.25
 
