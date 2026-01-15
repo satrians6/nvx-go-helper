@@ -26,8 +26,8 @@ package response
 import (
 	"context"
 
-	"github.com/DT-SMS-Finance/nvx-go-helper/activity"
-	"github.com/DT-SMS-Finance/nvx-go-helper/cryptoutil"
+	"github.com/Jkenyut/nvx-go-helper/activity"
+	"github.com/Jkenyut/nvx-go-helper/cryptoutil"
 )
 
 // Meta holds the metadata for the API response.

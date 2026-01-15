@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/DT-SMS-Finance/nvx-go-helper/activity"
+	"github.com/Jkenyut/nvx-go-helper/activity"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 )

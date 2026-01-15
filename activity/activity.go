@@ -3,7 +3,7 @@ package activity
 import (
 	"context"
 
-	"github.com/DT-SMS-Finance/nvx-go-helper/cryptoutil"
+	"github.com/Jkenyut/nvx-go-helper/cryptoutil"
 )
 
 // key defines a custom type for context keys to avoid collisions.

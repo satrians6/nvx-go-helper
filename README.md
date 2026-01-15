@@ -10,7 +10,7 @@
 ## 📦 Installation
 
 ```bash
-go get github.com/DT-SMS-Finance/nvx-go-helper
+go get github.com/Jkenyut/nvx-go-helper
 ```
 
 ## ✨ Core Features
@@ -19,7 +19,7 @@ go get github.com/DT-SMS-Finance/nvx-go-helper
 Ultra-fast and secure AES-256-GCM encryption. A simple, misuse-resistant wrapper around the standard `crypto/cipher`.
 
 ```go
-import "github.com/DT-SMS-Finance/nvx-go-helper/cryptoutil"
+import "github.com/Jkenyut/nvx-go-helper/cryptoutil"
 
 // Init (call once at startup)
 enc, err := crypto.NewAESGCM("32-byte-secret-key-must-be-exact!")
@@ -36,7 +36,7 @@ err := enc.Decrypt(token, &data)
 Helpers for string manipulation, number formatting, and standard banking formats.
 
 ```go
-import "github.com/DT-SMS-Finance/nvx-go-helper/format"
+import "github.com/Jkenyut/nvx-go-helper/format"
 
 // Format Rupiah
 fmt.Println(format.Rupiah(150000)) // "150.000,00"
@@ -55,7 +55,7 @@ fmt.Println(format.ToSafeString("User Name / 123")) // "User_Name___123"
 Standardized JSON API response format (`{ meta, data }`). Automatically handles `request_id` context propagation.
 
 ```go
-import "github.com/DT-SMS-Finance/nvx-go-helper/response"
+import "github.com/Jkenyut/nvx-go-helper/response"
 
 func CreateUser(c *gin.Context) {
     // ... logic ...
@@ -74,7 +74,7 @@ func GetUser(c *gin.Context) {
 Robust helper for handling pagination query parameters and generating Link headers (RFC 5988).
 
 ```go
-import "github.com/DT-SMS-Finance/nvx-go-helper/pagination"
+import "github.com/Jkenyut/nvx-go-helper/pagination"
 
 // Parse from query param
 p := pagination.New("1", "10", 100) // page, limit, total
