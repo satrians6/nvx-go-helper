@@ -86,6 +86,7 @@ func Numbers(length int) string {
 func stringWithCharset(length int, charset string) string {
 	// Guard clause for invalid length
 	if length <= 0 {
+		return ""
 	}
 	// Allocate byte slice of exact length (minimizes allocation overhead)
 	b := make([]byte, length)

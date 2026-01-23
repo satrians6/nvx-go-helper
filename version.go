@@ -1,5 +1,5 @@
 // Package main is the entry point (though this library is mostly a package collection).
-package main
+package nvx_go_helper
 
 // Version defines the current release version of the nvx-go-helper library.
 // It uses Semantic Versioning (SemVer) format: Major.Minor.Patch.

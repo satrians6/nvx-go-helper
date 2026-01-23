@@ -2,8 +2,6 @@ package activity
 
 import (
 	"context"
-
-	"github.com/Jkenyut/nvx-go-helper/cryptoutil"
 )
 
 // key defines a custom type for context keys to avoid collisions.
@@ -104,7 +102,7 @@ func GetAllFieldsFromContext(ctx context.Context) map[string]interface{} {
 
 	if userID, ok := GetUserID(ctx); ok {
 		// Add payload and result (can be nil)
-	fields["nvx_user_id"] = userID // from token
+		fields["nvx_user_id"] = userID // from token
 	}
 
 	if userType, ok := GetUserType(ctx); ok {
